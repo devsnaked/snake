@@ -3,7 +3,7 @@ import { required } from '../Form/Utils/Validators'
 import { Tag } from '@blueprintjs/core';
 
 export default {
-    rows: 3,
+    rows: 4,
     fields: {
         name: {
             row: 1,
@@ -65,6 +65,12 @@ export default {
             placeholder: 'Escreva o seu github...',
             info: '(required)',
         },
+        active: {
+            row: 4,
+            label: 'Você joga frequentenemente ?',
+            type: 'switch',
+            helper: 'Se sim... você irá concorrer a uma skin hara.',
+        }
     },
     onSubmit: (form) => {
         console.log(form)

@@ -1,9 +1,12 @@
 import StringField from './String'
 import SelectField from './Select'
+import SwitchField from './Switch'
+
 
 const fieldTypes = {
     string: StringField,
-    select: SelectField
+    select: SelectField,
+    switch: SwitchField
 }
 
 function types(){

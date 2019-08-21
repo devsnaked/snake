@@ -37,6 +37,7 @@ export default function SelectField(props) {
             labelFor={elementId}
             labelInfo={info}>
             <Select
+                id={elementId}
                 items={items}
                 itemRenderer={(item) => {
                     return <MenuItem
