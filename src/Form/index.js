@@ -31,7 +31,7 @@ function Form(props) {
         if (applyValidators(schema, state, store.dispatch)) {
             onSubmit(state.toJS())
         } else {
-
+            console.log('invalid')
         }
     }
 
@@ -71,23 +71,20 @@ function FormRows(props) {
 
 function applyValidators(schema, state, dispatch) {
     const fields = Map(schema.fields)
-    fields.map((field, index) => {
-      return   
+    return fields.every((field, name) => {
+        let isInvalid = false;
+        if (!field.validators) {
+            return true;
+        }
+        field.validators.forEach(validator => {
+            const validation = validator.run(state.get(name))
+            if (!validation) {
+                dispatch({ type: "UPDATE_FIELD_MESSAGE", field: name, message: validator.message })
+                isInvalid = true;
+            }
+        })
+        return !isInvalid
     })
-    // return fields.every((field, name) => {
-    //     let isInvalid = false;
-    //     if (!field.validators) {
-    //         return true;
-    //     }
-    //     field.validators.forEach(validator => {
-    //         const validation = validator.run()
-    //         if (!validation) {
-    //             dispatch({ type: "UPDATE_FIELD_MESSAGE", field: name, message: validator.message })
-    //             isInvalid = true;
-    //         }
-    //     })
-    //     return !isInvalid
-    // })
 }
 
 

@@ -1,5 +1,6 @@
+import React from 'react'
 import { required } from '../Form/Utils/Validators'
-
+import { Tag } from '@blueprintjs/core';
 
 export default {
     rows: 3,
@@ -25,13 +26,34 @@ export default {
                 required('Preencha o sobrenome corretamente')
             ]
         },
-        username: {
+        hero: {
             row: 2,
-            label: 'Digite o seu nome de usuário',
+            label: 'Selecione o seu hero...',
             type: 'select',
-            placeholder: 'Escreva o seu nome de usuário...',
+            placeholder: 'Random hero',
             helper: 'Helper text with details...',
             info: '(required)',
+            data: {
+                url: "https://api.opendota.com/api/heroes",
+                text: hero => {
+                    const intents = { agi: 'success', str: 'danger', int: 'primary' }
+                    return (
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <div style={{ marginRight: '16px' }}>
+                                {hero.localized_name}
+                            </div>
+                            <Tag minimal intent={intents[hero.primary_attr]}>{hero.primary_attr}</Tag>
+                        </div>
+                    )
+                },
+                id: hero => hero.id,
+                filterBy: ['localized_name', 'primary_attr'],
+                middleware: data => {
+                    return data.filter(hero => {
+                        return hero.roles.includes('Jungler')
+                    }).sort((a, b) => a.primary_attr.localeCompare(b.primary_attr))
+                }
+            }
         },
         github: {
             row: 3,
