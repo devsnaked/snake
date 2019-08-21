@@ -53,7 +53,10 @@ export default {
                         return hero.roles.includes('Jungler')
                     }).sort((a, b) => a.primary_attr.localeCompare(b.primary_attr))
                 }
-            }
+            },
+            validators: [
+                required('Selecione um hero...')
+            ]
         },
         github: {
             row: 3,

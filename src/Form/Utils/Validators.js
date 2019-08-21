@@ -1,12 +1,5 @@
 import { types } from './../Fields'
 
-function schemaValidator(schema) {
-    return [
-        checkFieldsType,
-        checkFieldsRow
-    ].every(validator => validator(schema));
-}
-
 function checkFieldsType(schema) {
     const { fields } = schema;
     const snakeTypes = types();
@@ -32,14 +25,20 @@ function checkFieldsRow(schema) {
     return true;
 }
 
-function required(message){
+function required(message) {
     return {
-        message, 
+        message,
         run: (value) => !!value
     }
 }
 
 
+function schemaValidator(schema) {
+    return [
+        checkFieldsType,
+        checkFieldsRow
+    ].every(validator => validator(schema))
+}
 
 export {
     schemaValidator,

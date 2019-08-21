@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { FormGroup, InputGroup } from "@blueprintjs/core"
 import { useSelector, useDispatch } from 'react-redux'
 import { debounce } from 'debounce'
@@ -12,11 +12,11 @@ export default function StringField(props) {
     const id = `string-field-${name}`
 
     const handleChange = debounce((value) => handleChangeInput(name, value, dispatch), 300)
-
+    const intent = (errorMessage ? 'danger' : 'none')
 
     return (
         <FormGroup
-            intent={errorMessage ? 'danger' : 'none'}
+            intent={intent}
             helperText={errorMessage ? errorMessage : helper}
             label={label}
             labelFor={id}
@@ -25,7 +25,7 @@ export default function StringField(props) {
                 id={id}
                 placeholder={placeholder}
                 defaultValue={value}
-                intent={errorMessage ? 'danger' : 'none'}
+                intent={intent}
                 onChange={event => handleChange(event.currentTarget.value)}
             />
         </FormGroup>

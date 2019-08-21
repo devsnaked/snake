@@ -9,7 +9,8 @@ export default function SelectField(props) {
     const [items, setItems] = useState(data.items || []);
     const elementId = `select-field-${name}`
     const dispatch = useDispatch()
-
+    const errorMessage = useSelector(state => state.validator.get(name))
+    const intent = (errorMessage ? 'danger' : 'none')
     const value = useSelector(state => {
         return items.find(item => id(item) === state.form.get(name))
     })
@@ -22,7 +23,7 @@ export default function SelectField(props) {
                     setItems(response)
                 })
         }
-    }, [data.url])
+    }, [url, middleware])
 
     function handleChangeSelect(item, name) {
         dispatch({ type: 'UPDATE_FIELD', field: name, value: id(item) })
@@ -30,7 +31,8 @@ export default function SelectField(props) {
 
     return (
         <FormGroup
-            helperText={helper}
+            intent={intent}
+            helperText={errorMessage ? errorMessage : helper}
             label={label}
             labelFor={elementId}
             labelInfo={info}>
@@ -45,7 +47,8 @@ export default function SelectField(props) {
                 itemPredicate={(value, item) => filterItems(value, item, filterBy)}>
                 <Button
                     text={value ? text(value) : placeholder}
-                    rightIcon="double-caret-vertical" />
+                    rightIcon="double-caret-vertical"
+                    intent={intent} />
             </Select>
         </FormGroup>
     )

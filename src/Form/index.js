@@ -4,7 +4,7 @@ import { fieldTypes } from './Fields'
 import { Button } from '@blueprintjs/core'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import { Map, List } from 'immutable'
+import { Map } from 'immutable'
 import formReducer from './reducers/form'
 import validatorReducer from './reducers/validator'
 import 'normalize.css/normalize.css'
@@ -71,6 +71,7 @@ function FormRows(props) {
 
 function applyValidators(schema, state, dispatch) {
     const fields = Map(schema.fields)
+
     return fields.every((field, name) => {
         let isInvalid = false;
         if (!field.validators) {
