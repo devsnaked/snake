@@ -20,10 +20,12 @@ const store = createStore(
 
 function Form(props) {
     const { schema } = props;
-    const { onSubmit } = schema
+    const { onSubmit, set } = schema
+
     useEffect(() => {
+        if(set) applyDispatchSchema(set)
         schemaValidator(schema)
-    }, [schema]);
+    }, [schema, set]);
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -74,7 +76,7 @@ function applyValidators(schema, state, dispatch) {
     const mapErr = fields.reduce((errList, field, name) => {
         if (field.validators) {
             const failValidator = field.validators.find(validator => {
-                return !validator.run(state.get(name))
+                return !validator.run(state.get(name), state)
             })
             if (failValidator) {
                 return errList.set(name, failValidator.message)
@@ -88,6 +90,13 @@ function applyValidators(schema, state, dispatch) {
 
     return (mapErr.size === 0)
 }
+
+function applyDispatchSchema(dispatchFromForm){
+    dispatchFromForm((form) => {
+        store.dispatch({type: 'SET_FORM_STATE', data: form})
+    })
+}
+
 
 
 export default Form;

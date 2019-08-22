@@ -32,6 +32,13 @@ function required(message) {
     }
 }
 
+function dynamic(message, callback){
+    return {
+        message,
+        run: (value, store) => callback(value, store)
+    }
+}
+
 
 function schemaValidator(schema) {
     return [
@@ -44,5 +51,6 @@ export {
     schemaValidator,
     checkFieldsType,
     checkFieldsRow,
-    required
+    required,
+    dynamic
 }

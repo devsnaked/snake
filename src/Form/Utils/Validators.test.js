@@ -6,7 +6,7 @@ it('Invalid type at the schema', () => {
             name: {
                 row: 1,
                 label: 'Nome',
-                type: 'stringa',
+                type: '',
                 placeholder: 'Write your name...',
                 helper: 'Helper text with details...'
             }

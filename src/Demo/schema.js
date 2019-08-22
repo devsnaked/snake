@@ -1,5 +1,5 @@
 import React from 'react'
-import { required } from '../Form/Utils/Validators'
+import { required, dynamic } from '../Form/Utils/Validators'
 import { Tag } from '@blueprintjs/core';
 
 export default {
@@ -23,7 +23,9 @@ export default {
             placeholder: 'Escreva o seu sobrenome...',
             info: '(required)',
             validators: [
-                required('Preencha o sobrenome corretamente')
+                dynamic('Você precisa valir essa rn', (_, state) => {
+                    return (state.get('name').length >= 5)
+                })
             ]
         },
         hero: {
@@ -80,10 +82,24 @@ export default {
             type: 'file',
             placeholder: 'Selecione uma imagem',
             buttonText: 'Navegador',
-            helper: 'Essa foto será usada como foto do seu perfil'
+            helper: 'Essa foto será usada como foto do seu perfil',
+            multiple: true,
+            validators: [
+                required('Selecione uma imagem.')
+            ]
+
         }
     },
     onSubmit: (form) => {
-        console.log(form)
+        console.table(form)
+    },
+    set: (dispatch) => {
+        dispatch({
+            name: 'Maximilly',
+            lastname: 'Moreira',
+            hero: 53,
+            github: 'devsnaked',
+            active: true,
+        })
     }
 }

@@ -5,7 +5,10 @@ import { debounce } from 'debounce'
 
 export default function FileInputField(props) {
 
-  const { label, name, helper, info, buttonText, multiple } = props;
+  const { label, name, helper, info, buttonText,  } = props;
+  const inputProps = {
+    multiple: props.multiple
+  }
   const value = useSelector(state => state.form.get(name))
   const errorMessage = useSelector(state => state.validator.get(name))
   const dispatch = useDispatch()
@@ -31,7 +34,7 @@ export default function FileInputField(props) {
         text={placeholder}
         hasSelection={value}
         buttonText={buttonText}
-        inputProps={{ multiple }}
+        inputProps={inputProps}
         intent={intent}
         onChange={event => handleChange(event.target)}
       />
@@ -47,5 +50,5 @@ function handleChangeInputFile(field, value, dispatch) {
 }
 
 function getText(fileList) {
-  return Array.from(fileList).map(file => file.name).join(',')
+  return Array.from(fileList).map(file => file.name).join(', ')
 }

@@ -7,20 +7,24 @@ export default function SelectField(props) {
     const { label, name, helper, info, data, placeholder } = props;
     const { url, filterBy, text, id, middleware } = data;
     const [items, setItems] = useState(data.items || []);
+    const [loading, setLoading] = useState(false)
     const elementId = `select-field-${name}`
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.validator.get(name))
     const intent = (errorMessage ? 'danger' : 'none')
+
     const value = useSelector(state => {
         return items.find(item => id(item) === state.form.get(name))
     })
 
     useEffect(() => {
         if (url) {
+            setLoading(true)
             requestData(url)
                 .then(response => middleware(response))
                 .then(response => {
                     setItems(response)
+                    setLoading(false)
                 })
         }
     }, [url, middleware])
@@ -49,7 +53,8 @@ export default function SelectField(props) {
                 <Button
                     text={value ? text(value) : placeholder}
                     rightIcon="double-caret-vertical"
-                    intent={intent} />
+                    intent={intent}
+                    loading={loading} />
             </Select>
         </FormGroup>
     )
