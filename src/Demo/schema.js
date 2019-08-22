@@ -3,7 +3,7 @@ import { required } from '../Form/Utils/Validators'
 import { Tag } from '@blueprintjs/core';
 
 export default {
-    rows: 4,
+    rows: 5,
     fields: {
         name: {
             row: 1,
@@ -70,6 +70,14 @@ export default {
             label: 'Você joga frequentenemente ?',
             type: 'switch',
             helper: 'Se sim... você irá concorrer a uma skin hara.',
+        },
+        picture: {
+            row: 5,
+            label: 'Selecione uma foto sua.',
+            type: 'file',
+            placeholder: 'Selecione uma imagem',
+            buttonText: 'Navegador',
+            helper: 'Essa foto será usada como foto do seu perfil'
         }
     },
     onSubmit: (form) => {
