@@ -71,21 +71,22 @@ function FormRows(props) {
 
 function applyValidators(schema, state, dispatch) {
     const fields = Map(schema.fields)
-
-    return fields.every((field, name) => {
-        let isInvalid = false;
-        if (!field.validators) {
-            return true;
-        }
-        field.validators.forEach(validator => {
-            const validation = validator.run(state.get(name))
-            if (!validation) {
-                dispatch({ type: "UPDATE_FIELD_MESSAGE", field: name, message: validator.message })
-                isInvalid = true;
+    const mapErr = fields.reduce((errList, field, name) => {
+        if (field.validators) {
+            const failValidator = field.validators.find(validator => {
+                return !validator.run(state.get(name))
+            })
+            if (failValidator) {
+                return errList.set(name, failValidator.message)
             }
-        })
-        return !isInvalid
-    })
+        }
+
+        return errList;
+    }, Map({}))
+
+    dispatch({type: 'SET_ERR_MAP', map: mapErr})
+
+    return (mapErr.size === 0)
 }
 
 

@@ -64,6 +64,9 @@ export default {
             type: 'string',
             placeholder: 'Escreva o seu github...',
             info: '(required)',
+            validators: [
+                required('Informe o seu github...')
+            ]
         },
         active: {
             row: 4,
