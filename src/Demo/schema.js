@@ -3,7 +3,7 @@ import { required, dynamic } from '../Form/Utils/Validators'
 import { Tag } from '@blueprintjs/core';
 
 export default {
-    rows: 5,
+    rows: 6,
     fields: {
         name: {
             row: 1,
@@ -87,8 +87,23 @@ export default {
             validators: [
                 required('Selecione uma imagem.')
             ]
-
-        }
+        },
+        preference: {
+            row: 6,
+            label: 'Minha preferência como desenvolvedor é ?',
+            type: 'radio',
+            placeholder: 'Escreva o seu github...',
+            info: '(required)',
+            helper: 'Isso será usado para recomendar conteúdo para você!',
+            options: [
+                { label: 'Front-end', value: 'front' },
+                { label: 'Back-end', value: 'back' },
+                { label: 'Full-stack', value: 'full' }
+            ],
+            validators: [
+                required('Informe sua preferência como desenvolvedor...')
+            ]
+        },
     },
     onSubmit: (form) => {
         console.table(form)
