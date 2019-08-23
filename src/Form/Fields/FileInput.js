@@ -12,7 +12,7 @@ export default function FileInputField(props) {
   const value = useSelector(state => state.form.get(name))
   const errorMessage = useSelector(state => state.validator.get(name))
   const dispatch = useDispatch()
-  const id = `string-field-${name}`
+  const id = `file-input-field-${name}`
   let { placeholder } = props;
 
   const handleChange = debounce((value) => handleChangeInputFile(name, value.files, dispatch), 300)
