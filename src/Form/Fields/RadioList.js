@@ -1,7 +1,6 @@
 import React from 'react'
 import { FormGroup, RadioGroup, Radio } from "@blueprintjs/core"
 import { useSelector, useDispatch } from 'react-redux'
-import { debounce } from 'debounce'
 
 export default function RadioListField(props) {
 
