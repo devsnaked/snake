@@ -10,6 +10,7 @@ import validatorReducer from './reducers/validator'
 import 'normalize.css/normalize.css'
 import '@blueprintjs/icons/lib/css/blueprint-icons.css'
 import '@blueprintjs/core/lib/css/blueprint.css'
+import '@blueprintjs/datetime/lib/css/blueprint-datetime.css'
 import './style.css'
 
 const store = createStore(
@@ -62,10 +63,10 @@ function FormRows(props) {
         rowsList[index] = [...rowsList[index], <SnakeFieldElement {...field} key={name} name={name} />]
     }
 
-    return rowsList.map((elementList, index) => {
+    return rowsList.map((fieldList, index) => {
         return (
             <div className="row" key={index}>
-                {elementList}
+                {fieldList}
             </div>
         )
     })

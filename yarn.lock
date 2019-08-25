@@ -796,7 +796,7 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@blueprintjs/core@^3.18.0":
+"@blueprintjs/core@^3.15.1", "@blueprintjs/core@^3.18.0":
   version "3.18.0"
   resolved "https://registry.yarnpkg.com/@blueprintjs/core/-/core-3.18.0.tgz#8835ead10460e6535076465865d2ad7600ae1a07"
   integrity sha512-dr3A6uhpAAWmf5muY6PFQp5EgEzinRLZa/TGQMA05q1P2xrOn/LYlsqJWJBUJ3j9tmh1RP8VPeu1HmosQb3J7w==
@@ -811,6 +811,16 @@
     react-transition-group "^2.9.0"
     resize-observer-polyfill "^1.5.1"
     tslib "~1.9.0"
+
+"@blueprintjs/datetime@^3.9.2":
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/@blueprintjs/datetime/-/datetime-3.9.2.tgz#f750f5ac440038c7845c12aa75eb50e8d95975c4"
+  integrity sha512-qHZySOLB7hOAB0gWmT6Yz2q25ufUyGiRAHNXB6Ol3INkOrXhz7qhbK9EDEq1fbRDw7wVg52zh3WNoHX9Lw23zQ==
+  dependencies:
+    "@blueprintjs/core" "^3.15.1"
+    classnames "^2.2"
+    react-day-picker "^7.3.0"
+    tslib "^1.9.0"
 
 "@blueprintjs/icons@^3.10.0":
   version "3.10.0"
@@ -7969,6 +7979,13 @@ react-app-polyfill@^1.0.2:
     raf "3.4.1"
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
+
+react-day-picker@^7.3.0:
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-7.3.2.tgz#b9b9b0000ba53b2c9df9bccb79664862aba6b60a"
+  integrity sha512-mij2j2Un/v2V2ow+hf/hFBMdl6Eis/C/YhBtlI6Xpbvh3Q6WMix78zEkCdw6i9GldafOrpnupWKofv/h5oSI4g==
+  dependencies:
+    prop-types "^15.6.2"
 
 react-dev-utils@^9.0.3:
   version "9.0.3"

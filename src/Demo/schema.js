@@ -3,7 +3,7 @@ import { required, dynamic } from '../Form/Utils/Validators'
 import { Tag } from '@blueprintjs/core';
 
 export default {
-    rows: 6,
+    rows: 7,
     fields: {
         name: {
             row: 1,
@@ -104,6 +104,15 @@ export default {
                 required('Informe sua preferência como desenvolvedor...')
             ]
         },
+        date: {
+            row: 7,
+            label: 'Você joga frequentenemente ?',
+            type: 'date',
+            helper: 'Se sim... você irá concorrer a uma skin hara.',
+            placeholder: '09/04/1998',
+            timer: true
+        },
+        
     },
     onSubmit: (form) => {
         console.table(form)

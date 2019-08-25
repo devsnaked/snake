@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@blueprintjs/core": "^3.18.0",
+    "@blueprintjs/datetime": "^3.9.2",
     "@blueprintjs/select": "^3.10.0",
     "debounce": "^1.2.0",
     "immutable": "^4.0.0-rc.12",
