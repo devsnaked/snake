@@ -2,13 +2,13 @@ import React from 'react'
 import { FormGroup } from "@blueprintjs/core"
 import { useSelector, useDispatch } from 'react-redux'
 import { DateInput } from '@blueprintjs/datetime'
-export default function StringField(props) {
+export default function DateInputField(props) {
 
     const { label, name, placeholder, helper, info, locale, timer } = props;
     const value = useSelector(state => state.form.get(name))
     const errorMessage = useSelector(state => state.validator.get(name))
     const dispatch = useDispatch()
-    const id = `string-field-${name}`
+    const id = `date-field-${name}`
 
     const handleChange = (value) => handleChangeDatePicker(name, value, dispatch)
     const intent = (errorMessage ? 'danger' : 'none')
