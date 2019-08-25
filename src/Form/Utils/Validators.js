@@ -28,7 +28,7 @@ function checkFieldsRow(schema) {
 function required(message) {
     return {
         message,
-        run: (value) => !!value
+        run: (value) => !(value === "" || value === null || value === undefined)
     }
 }
 
@@ -36,6 +36,13 @@ function dynamic(message, callback){
     return {
         message,
         run: (value, store) => callback(value, store)
+    }
+}
+
+function equalTo(message, value){
+    return {
+        message,
+        run: (fieldValue) => (value === fieldValue)
     }
 }
 
@@ -52,5 +59,6 @@ export {
     checkFieldsType,
     checkFieldsRow,
     required,
-    dynamic
+    dynamic,
+    equalTo
 }

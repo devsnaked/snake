@@ -1,4 +1,9 @@
-import { checkFieldsType, checkFieldsRow } from './Validators'
+import {
+    checkFieldsType, 
+    checkFieldsRow, 
+    equalTo, 
+    required
+} from './Validators'
 
 it('Invalid type at the schema', () => {
     expect(() => checkFieldsType({
@@ -49,3 +54,34 @@ it('Valid row at the schema', () => {
         }
     })).toEqual(true)
 })
+
+it('Validator function equalTo true', () => {
+    const validator = equalTo('', true)
+    expect(validator.run(true)).toEqual(true)
+})
+
+it('Validator function equalTo false', () => {
+    const validator = equalTo('', false)
+    expect(validator.run(true)).toEqual(false)
+})
+
+it('Validator function required when field don´t has value', () => {
+    const validator = required('');
+    expect(validator.run('')).toEqual(false);
+})
+
+it('Validator function required when field has value', () => {
+    const validator = required('');
+    expect(validator.run("Value")).toEqual(true);
+})
+
+it('Validator function required when field has value', () => {
+    const validator = required('');
+    expect(validator.run(0)).toEqual(true);
+})
+
+it('Validator function required when field has value', () => {
+    const validator = required('');
+    expect(validator.run(false)).toEqual(true);
+})
+
