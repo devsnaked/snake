@@ -4,6 +4,7 @@ import SwitchField from './Switch'
 import FileInput from './FileInput'
 import RadioListField from './RadioList'
 import DatePicker from './DatePicker'
+import NumberField from './Number'
 
 const fieldTypes = {
     string: StringField,
@@ -11,7 +12,8 @@ const fieldTypes = {
     switch: SwitchField,
     file: FileInput,
     radio: RadioListField,
-    date: DatePicker
+    date: DatePicker,
+    number: NumberField
 }
 
 function types(){
