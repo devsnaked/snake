@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { DateInput } from '@blueprintjs/datetime'
 export default function DateInputField(props) {
 
-    const { label, name, placeholder, helper, info, locale, timer } = props;
+    const { label, name, placeholder, helper, info, locale, timer, min, max } = props;
     const value = useSelector(state => state.form.get(name))
     const errorMessage = useSelector(state => state.validator.get(name))
     const dispatch = useDispatch()
@@ -27,6 +27,9 @@ export default function DateInputField(props) {
                 formatDate={date => displayDate(date, {timer, locale})}
                 value={value}
                 timePrecision={timer}
+                minDate={min}
+                maxDate={max}
+                closeOnSelection={false}
             />
         </FormGroup>
     )
