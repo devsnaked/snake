@@ -18,14 +18,15 @@ export default function formReducer(state = Map({}), action) {
 
 function updateMultiSelectList(state, action) {
     const { field, value } = action
-    if (!state.get(field))
-        return state.set(field, new List([value]))
 
+    if (!state.get(field)) {
+        return state.set(field, new List([value]))
+    }
 
     return state.update(field, list => {
         if (list.includes(value)) {
             return list.filter(item => item !== value)
         }
-        return list.push(value)
+        return [...list, value]
     })
 }
