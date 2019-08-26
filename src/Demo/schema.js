@@ -3,7 +3,7 @@ import { required, dynamic } from '../Form/Utils/Validators'
 import { Tag } from '@blueprintjs/core';
 
 export default {
-    rows: 7,
+    rows: 8,
     fields: {
         name: {
             row: 1,
@@ -124,7 +124,29 @@ export default {
             validators: [
                 required('Informe a sua idade.')
             ]
-        }
+        },
+        favorite_heros: {
+            row: 8,
+            label: 'Selecione os seus heros favoritos...',
+            type: 'multiSelect',
+            placeholder: 'Random hero',
+            helper: 'Helper text with details...',
+            info: '(required)',
+            data: {
+                url: "https://api.opendota.com/api/heroes",
+                text: hero => hero.localized_name,
+                id: hero => hero.id,
+                filterBy: ['localized_name', 'primary_attr'],
+                middleware: data => {
+                    return data.filter(hero => {
+                        return hero.roles.includes('Jungler')
+                    }).sort((a, b) => a.primary_attr.localeCompare(b.primary_attr))
+                }
+            },
+            validators: [
+                required('Selecione um hero...')
+            ]
+        },
     },
     onSubmit: (form) => {
         console.table(form)
