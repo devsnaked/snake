@@ -6,6 +6,8 @@ import RadioListField from './RadioList'
 import DatePicker from './DatePicker'
 import NumberField from './Number'
 import MultiSelect from './MultiSelect'
+import CheckboxList from './Checkbox'
+
 
 const fieldTypes = {
     string: StringField,
@@ -15,7 +17,8 @@ const fieldTypes = {
     radio: RadioListField,
     date: DatePicker,
     number: NumberField,
-    multiSelect: MultiSelect
+    multiSelect: MultiSelect,
+    checkbox: CheckboxList
 }
 
 function types(){
