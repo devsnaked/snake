@@ -34,7 +34,7 @@ export default function SelectField(props) {
     }, [url, middleware])
 
     function handleChangeSelect(item) {
-        dispatch({ type: 'UPDATE_FIELD_MULTI_SELECT', field: name, value: id(item) })
+        dispatch({ type: 'UPDATE_FIELD_LIST_VALUE', field: name, value: id(item) })
     }
 
     return (
