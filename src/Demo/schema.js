@@ -147,6 +147,21 @@ export default {
                 required('Selecione um hero...')
             ]
         },
+        dev_options: {
+            row: 8,
+            label: 'Você joga frequentenemente ?',
+            type: 'checkbox',
+            helper: 'Se sim... você irá concorrer a uma skin hara.',
+            placeholder: '09/04/1998',
+            options: [
+                { label: 'Front-end', value: 'front' },
+                { label: 'Back-end', value: 'back' },
+                { label: 'Full-stack', value: 'full' }
+            ],
+            validators: [
+                required('Escolha ao menos um')
+            ]
+        },
     },
     onSubmit: (form) => {
         console.table(form)
@@ -158,7 +173,14 @@ export default {
             hero: 53,
             github: 'devsnaked',
             active: true,
-            age: 19
+            age: 19,
+            favorite_heros: [
+                65, 77
+            ],
+            dev_options: [
+                'front',
+                'back'
+            ]
         })
     }
 }
