@@ -49,6 +49,7 @@ export default function SelectField(props) {
                 items={items}
                 placeholder={placeholder}
                 fill
+                onItemSelect={console.log}
                 selectedItems={values}
                 itemRenderer={(item) => {
                     const isActive = stateValue.includes(id(item))
@@ -57,7 +58,10 @@ export default function SelectField(props) {
                         icon={isActive && 'small-tick'}
                         key={id(item)}
                         text={text(item)}
-                        onClick={() => handleChangeSelect(item)} />
+                        onClick={(event) => {
+                            handleChangeSelect(item)
+                            event.preventDefault()
+                        }} />
                 }}
                 itemPredicate={(value, item) => filterItems(value, item, filterBy)}
                 tagRenderer={item => text(item)}
@@ -69,7 +73,9 @@ export default function SelectField(props) {
                             _clickEvent.stopPropagation()
                         }
                     }
-                }}>
+                }}
+                
+                >
 
             </MultiSelect>
         </FormGroup>
