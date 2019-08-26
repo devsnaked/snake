@@ -44,9 +44,13 @@ export default function SelectField(props) {
                 id={elementId}
                 items={items}
                 itemRenderer={(item) => {
+                    const isActive = (id(item) === id(value))
                     return <MenuItem
+                        active={isActive}
+                        icon={isActive && 'small-tick'}
                         key={id(item)}
                         text={text(item)}
+                        intent="none"
                         onClick={() => handleChangeSelect(item, name)} />
                 }}
                 itemPredicate={(value, item) => filterItems(value, item, filterBy)}>
