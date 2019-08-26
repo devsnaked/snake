@@ -45,7 +45,6 @@ export default function SelectField(props) {
             labelFor={elementId}
             labelInfo={info}>
             <MultiSelect
-                loading={loading}
                 id={elementId}
                 items={items}
                 placeholder={placeholder}
