@@ -28,7 +28,7 @@ function checkFieldsRow(schema) {
 function required(message) {
     return {
         message,
-        run: (value) => !(value === "" || value === null || value === undefined)
+        run: (value) => !(value === "" || value === null || value === undefined || value.length === 0)
     }
 }
 
