@@ -110,9 +110,21 @@ export default {
             type: 'date',
             helper: 'Se sim... você irá concorrer a uma skin hara.',
             placeholder: '09/04/1998',
-            timer: true
+            min: new Date('2019-06-11T03:00:00.000Z'),
+            max: new Date()
         },
-        
+        age: {
+            row: 7,
+            label: 'Qual a sua idade ?',
+            type: 'number',
+            helper: 'Valor mínimo 18, Valor máximo 60...',
+            placeholder: 'Example: 15',
+            min: 18,
+            max: 60,
+            validators: [
+                required('Informe a sua idade.')
+            ]
+        }
     },
     onSubmit: (form) => {
         console.table(form)
@@ -124,6 +136,7 @@ export default {
             hero: 53,
             github: 'devsnaked',
             active: true,
+            age: 19
         })
     }
 }
