@@ -7,7 +7,7 @@ export default function formReducer(state = Map({}), action) {
             return state.set(field, value)
         case "SET_FORM_STATE":
             let { data } = action
-            return new Map(data)
+            return new Map(data).merge(state)
         case 'UPDATE_FIELD_LIST_VALUE':
             return updateMultiSelectList(state, action)
         default:
