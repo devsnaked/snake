@@ -32,17 +32,31 @@ function required(message) {
     }
 }
 
-function dynamic(message, callback){
+function dynamic(message, callback) {
     return {
         message,
         run: (value, store) => callback(value, store)
     }
 }
 
-function equalTo(message, value){
+function equalTo(message, value) {
     return {
         message,
         run: (fieldValue) => (value === fieldValue)
+    }
+}
+
+function min(message, minValue) {
+    return {
+        message,
+        run: (fieldValue) => (fieldValue >= minValue)
+    }
+}
+
+function max(message, maxValue) {
+    return {
+        message,
+        run: (fieldValue) => (fieldValue <= maxValue)
     }
 }
 
@@ -60,5 +74,7 @@ export {
     checkFieldsRow,
     required,
     dynamic,
-    equalTo
+    equalTo,
+    max, 
+    min
 }
