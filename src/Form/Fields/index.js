@@ -7,7 +7,7 @@ import DatePicker from './DatePicker'
 import NumberField from './Number'
 import MultiSelect from './MultiSelect'
 import CheckboxList from './Checkbox'
-
+import SliderField from './SliderField'
 
 const fieldTypes = {
     string: StringField,
@@ -18,7 +18,8 @@ const fieldTypes = {
     date: DatePicker,
     number: NumberField,
     multiSelect: MultiSelect,
-    checkbox: CheckboxList
+    checkbox: CheckboxList,
+    slider: SliderField
 }
 
 function types(){
