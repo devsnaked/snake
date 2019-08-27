@@ -1,9 +1,9 @@
 import React from 'react'
-import { required, dynamic } from '../Form/Utils/Validators'
+import { required, dynamic, min, max } from '../Form/Utils/Validators'
 import { Tag } from '@blueprintjs/core';
 
 export default {
-    rows: 8,
+    rows: 9,
     fields: {
         name: {
             row: 1,
@@ -162,10 +162,22 @@ export default {
                 required('Escolha ao menos um')
             ]
         },
+        slider: {
+            row: 9,
+            label: 'Testando o slider',
+            type: 'slider',
+            helper: 'Helper do slider',
+            min: 18,
+            max: 60,
+            labelRenderer: (number) => `${number}%`,
+            validators: [
+                required('Informe a sua idade.'),
+                min('O valor minimo é 20', 20),
+                max('O valor maximo é 40', 40)
+            ]
+        },
     },
-    onSubmit: (form) => {
-        console.table(form)
-    },
+    onSubmit: console.table,
     set: (dispatch) => {
         dispatch({
             name: 'Maximilly',
