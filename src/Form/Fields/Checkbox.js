@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormGroup, Checkbox, Classes } from "@blueprintjs/core"
+import { FormGroup, Checkbox } from "@blueprintjs/core"
 import { useSelector, useDispatch } from 'react-redux'
 
 export default function CheckboxList(props) {

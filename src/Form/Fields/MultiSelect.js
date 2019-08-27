@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FormGroup, Tag, MenuItem } from '@blueprintjs/core'
+import { FormGroup, MenuItem } from '@blueprintjs/core'
 import { MultiSelect } from "@blueprintjs/select";
 import { useSelector, useDispatch } from 'react-redux'
 import { List } from 'immutable';
@@ -8,7 +8,6 @@ export default function SelectField(props) {
     const { label, name, helper, info, data, placeholder } = props;
     const { url, filterBy, text, id, middleware } = data;
     const [items, setItems] = useState(data.items || []);
-    const [loading, setLoading] = useState(false)
     const elementId = `select-field-${name}`
     const dispatch = useDispatch()
     const errorMessage = useSelector(state => state.validator.get(name))
@@ -23,12 +22,10 @@ export default function SelectField(props) {
 
     useEffect(() => {
         if (url) {
-            setLoading(true)
             requestData(url)
                 .then(response => middleware(response))
                 .then(response => {
                     setItems(response)
-                    setLoading(false)
                 })
         }
     }, [url, middleware])
