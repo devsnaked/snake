@@ -1,4 +1,4 @@
-import From from './Form'
+import Form from './Form'
 
 
 export {
