@@ -1,7 +1,9 @@
 {
   "name": "snake",
+  "description": "A simple React component capable of building HTML forms out of a JSON schema.",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "./dist/lib/index.js",
   "dependencies": {
     "@blueprintjs/core": "^3.18.0",
     "@blueprintjs/datetime": "^3.9.2",
