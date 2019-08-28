@@ -1,0 +1,1 @@
+import{Map}from"immutable";export default function formReducer(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:Map({}),b=1<arguments.length?arguments[1]:void 0;switch(b.type){case"SET_ERR_MAP":return b.map;default:return a;}}

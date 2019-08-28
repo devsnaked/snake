@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    margin: 10px 0;
+}
+.row .bp3-form-group{
+    display: flex;
+    flex: auto;
+    margin:0 5px;
+}
+
+.flex-right {
+    display: flex;
+    justify-content: flex-end;
+}
