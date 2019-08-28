@@ -186,6 +186,7 @@ export default {
             github: 'devsnaked',
             active: true,
             age: 19,
+            slider: 50,
             favorite_heros: [
                 65, 77
             ],
