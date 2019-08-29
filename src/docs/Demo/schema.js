@@ -41,7 +41,7 @@ export default {
                     const intents = { agi: 'success', str: 'danger', int: 'primary' }
                     return (
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <div style={{ marginRight: '16px' }}>
+                            <div>
                                 {hero.localized_name}
                             </div>
                             <Tag minimal intent={intents[hero.primary_attr]}>{hero.primary_attr}</Tag>
@@ -148,7 +148,7 @@ export default {
             ]
         },
         dev_options: {
-            row: 8,
+            row: 5,
             label: 'Você joga frequentenemente ?',
             type: 'checkbox',
             helper: 'Se sim... você irá concorrer a uma skin hara.',
@@ -186,6 +186,7 @@ export default {
             github: 'devsnaked',
             active: true,
             age: 19,
+            slider: 50,
             favorite_heros: [
                 65, 77
             ],

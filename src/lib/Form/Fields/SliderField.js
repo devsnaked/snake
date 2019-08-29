@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { FormGroup, Slider } from "@blueprintjs/core"
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -13,10 +13,6 @@ export default function SliderField(props) {
     const handleChange = (value) => handleChangeInput(name, value, dispatch)
     const intent = (errorMessage ? 'danger' : 'none')
 
-    useEffect(() => {
-        dispatch({ type: 'UPDATE_FIELD', field: name, value: min })
-    }, [min, dispatch, name])
-
     return (
         <FormGroup
             intent={intent}
@@ -24,7 +20,7 @@ export default function SliderField(props) {
             label={label}
             labelFor={id}
             labelInfo={info}>
-            <div style={{position: 'relative', width: '98%', margin: '0 1%'}}>
+            <div style={{position: 'relative', width: '96%', margin: '0 2%'}}>
                 <Slider
                     id={id}
                     value={value || min}

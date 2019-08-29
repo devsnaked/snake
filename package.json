@@ -1,7 +1,10 @@
 {
   "name": "snake",
+  "description": "A simple React component capable of building HTML forms out of a JSON schema.",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "./dist/lib/index.js",
+  "module": "./dist/lib/index.js",
   "dependencies": {
     "@blueprintjs/core": "^3.18.0",
     "@blueprintjs/datetime": "^3.9.2",
@@ -16,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -34,5 +37,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "babel-cli": "^6.26.0",
+    "babel-preset-minify": "^0.5.1",
+    "react-styleguidist": "^9.1.16",
+    "webpack": "^4.39.3"
   }
 }
