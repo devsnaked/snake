@@ -3,11 +3,13 @@ module.exports = {
   sections: [
     {
       name: 'Introduction',
-      content: './src/docs/introduction.md'
-    },
-    {
-      name: 'Usage',
-      content: './scr/docs/usage.md'
+      content: './src/docs/introduction.md',
+      sections: [
+        {
+          name: 'Usage',
+          content: 'src/docs/howuse.md'
+        }
+      ]
     }
   ]
 }
