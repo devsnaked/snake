@@ -1,3 +1,7 @@
+/**
+* @ignore
+*/
+
 import StringField from './String'
 import SelectField from './Select'
 import SwitchField from './Switch'
@@ -7,7 +11,7 @@ import DatePicker from './DatePicker'
 import NumberField from './Number'
 import MultiSelect from './MultiSelect'
 import CheckboxList from './Checkbox'
-import SliderField from './SliderField'
+import SliderField from './Slider'
 
 const fieldTypes = {
     string: StringField,

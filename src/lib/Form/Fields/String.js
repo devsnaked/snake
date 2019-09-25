@@ -3,7 +3,10 @@ import { FormGroup, InputGroup } from "@blueprintjs/core"
 import { useSelector, useDispatch } from 'react-redux'
 import { debounce } from 'debounce'
 
-export default function StringField(props) {
+/**  
+ * String is a simple input text.
+*/
+export default function String(props) {
 
     const { label, name, placeholder, helper, info } = props;
     const value = useSelector(state => state.form.get(name))

@@ -5,7 +5,7 @@ import { debounce } from 'debounce'
 
 export default function FileInputField(props) {
 
-  const { label, name, helper, info, buttonText,  } = props;
+  const { label, name, helper, info, buttonText } = props;
   const inputProps = {
     multiple: props.multiple
   }

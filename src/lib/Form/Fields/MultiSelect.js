@@ -4,6 +4,13 @@ import { MultiSelect } from "@blueprintjs/select";
 import { useSelector, useDispatch } from 'react-redux'
 import { List } from 'immutable';
 
+
+
+/**  
+ * This is a description of the foo function.
+ * @constructor
+*/
+
 export default function SelectField(props) {
     const { label, name, helper, info, data, placeholder } = props;
     const { url, filterBy, text, id, middleware } = data;
@@ -34,6 +41,19 @@ export default function SelectField(props) {
         dispatch({ type: 'UPDATE_FIELD_LIST_VALUE', field: name, value: id(item) })
     }
 
+    function itemRenderer(item){
+        const isActive = stateValue.includes(id(item))
+        return <MenuItem
+            active={isActive}
+            icon={isActive && 'small-tick'}
+            key={id(item)}
+            text={text(item)}
+            onClick={(event) => {
+                handleChangeSelect(item)
+                event.preventDefault()
+            }} />
+    }
+
     return (
         <FormGroup
             intent={intent}
@@ -48,18 +68,7 @@ export default function SelectField(props) {
                 fill
                 onItemSelect={console.log}
                 selectedItems={values}
-                itemRenderer={(item) => {
-                    const isActive = stateValue.includes(id(item))
-                    return <MenuItem
-                        active={isActive}
-                        icon={isActive && 'small-tick'}
-                        key={id(item)}
-                        text={text(item)}
-                        onClick={(event) => {
-                            handleChangeSelect(item)
-                            event.preventDefault()
-                        }} />
-                }}
+                itemRenderer={itemRenderer}
                 itemPredicate={(value, item) => filterItems(value, item, filterBy)}
                 tagRenderer={item => text(item)}
                 tagInputProps={{
@@ -71,10 +80,7 @@ export default function SelectField(props) {
                         }
                     }
                 }}
-                
-                >
-
-            </MultiSelect>
+                />
         </FormGroup>
     )
 }

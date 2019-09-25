@@ -1,6 +1,6 @@
-import Form from './Form'
+import SForm from './Form'
 
 
 export {
-    Form
+    SForm
 }

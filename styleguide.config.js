@@ -1,15 +1,14 @@
 module.exports = {
-  components: 'src/lib/**/[A-Z]*.js',
+  components: 'src/lib/**/*.js',
+  pagePerSection: true,
   sections: [
     {
       name: 'Introduction',
-      content: './src/docs/introduction.md',
-      sections: [
-        {
-          name: 'Usage',
-          content: 'src/docs/howuse.md'
-        }
-      ]
+      content: 'README.md',
+    }, 
+    {
+      name: 'Inputs',
+      components: './src/lib/Form/Fields/*.js'
     }
   ]
 }

@@ -16,7 +16,11 @@ export default function SwitchField(props) {
       label={label}
       labelFor={elementId}
       labelInfo={info}>
-      <Switch id={elementId} defaultChecked={value} onChange={event => handleChangeSwitch(name, event.target.checked, dispatch)} />
+      <Switch 
+        id={elementId} 
+        defaultChecked={value} 
+        onChange={event => handleChangeSwitch(name, event.target.checked, dispatch)} 
+      />
     </FormGroup>
   )
 
