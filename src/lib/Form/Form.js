@@ -21,7 +21,7 @@ const store = createStore(
 
 export default function SForm(props) {
     const { schema } = props;
-    const { onSubmit, set } = schema
+    const { onSubmit = function(){}, set } = schema
 
     useEffect(() => {
         if(set) applyDispatchSchema(set)
