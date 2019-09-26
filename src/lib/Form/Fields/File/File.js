@@ -3,7 +3,7 @@ import { FormGroup, FileInput } from "@blueprintjs/core"
 import { useSelector, useDispatch } from 'react-redux'
 import { debounce } from 'debounce'
 
-export default function FileInputField(props) {
+export default function File(props) {
 
   const { label, name, helper, info, buttonText } = props;
   const inputProps = {

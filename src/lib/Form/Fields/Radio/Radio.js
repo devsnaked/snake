@@ -2,7 +2,7 @@ import React from 'react'
 import { FormGroup, RadioGroup, Radio } from "@blueprintjs/core"
 import { useSelector, useDispatch } from 'react-redux'
 
-export default function RadioListField(props) {
+export default function RadioField(props) {
 
   const { label, name, options, helper, info } = props;
   const value = useSelector(state => state.form.get(name))

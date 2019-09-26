@@ -1,5 +1,5 @@
 module.exports = {
-  components: 'src/lib/**/*.js',
+  components: 'src/lib/**/[A-Z]*.js',
   pagePerSection: true,
   sections: [
     {
@@ -8,7 +8,7 @@ module.exports = {
     }, 
     {
       name: 'Inputs',
-      components: './src/lib/Form/Fields/*.js'
+      components: './src/lib/Form/Fields/**/*.js'
     }
   ]
 }

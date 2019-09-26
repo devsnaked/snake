@@ -19,7 +19,7 @@ const store = createStore(
 );
 
 
-function Form(props) {
+export default function SForm(props) {
     const { schema } = props;
     const { onSubmit, set } = schema
 
@@ -74,6 +74,7 @@ function FormRows(props) {
 
 function applyValidators(schema, state, dispatch) {
     const fields = Map(schema.fields)
+    
     const mapErr = fields.reduce((errList, field, name) => {
         if (field.validators) {
             const failValidator = field.validators.find(validator => {
@@ -100,4 +101,3 @@ function applyDispatchSchema(dispatchFromForm){
 
 
 
-export default Form;
